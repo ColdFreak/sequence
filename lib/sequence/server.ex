@@ -5,6 +5,7 @@ defmodule Sequence.Server do
   # External API
 
   def start_link(stash_pid) do
+    # name属性をつけると，:observer中にも反映される
     result = {:ok, server_pid} = GenServer.start_link(__MODULE__, stash_pid, name: __MODULE__)
     IO.puts "server pid = #{inspect server_pid}"
     result 
